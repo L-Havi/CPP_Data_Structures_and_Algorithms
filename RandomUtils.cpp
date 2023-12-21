@@ -1,6 +1,6 @@
 /*
  *  Utilities for random events
- *  Includes a function for getting a random integer between 0 - 10 000
+ *  Includes a function for getting a random integer between 0 - 100
  */
 
 #include <iostream>
@@ -16,7 +16,7 @@ int generateRandomInteger()
     const u32 seed = osSeed();
 
     engine generator(seed);
-    std::uniform_int_distribution<u32> distribute(0, 10000);
+    std::uniform_int_distribution<u32> distribute(0, 100);
 
     return distribute(generator);
 }

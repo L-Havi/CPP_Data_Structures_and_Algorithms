@@ -1,9 +1,13 @@
 /*
  *  Demonstration of different Data Structures and Algorithms written in C++.
+ * 
+ *  The point is to also demonstrate the steps these algorithms take to achieve their goal by describing all steps in the console.
+ * 
  */
 
 #include "OneDimensionalArrayOperations.h"
 #include "TwoDimensionalArrayOperations.h"
+#include "multidimensionalArrayOperations.h"
 #include "RandomUtils.h"
 #include "CommonUtils.h"
 
@@ -18,11 +22,16 @@ int main() {
 
 	while (programOn) 
 	{
-		std::cout << "Welcome to C++ Algorithms & Datastructures demonstration!\n"
-			<< "Choose a number to view different operations\n"
-			<< "1. One Dimensional Array Operations\n" 
-			<< "2. Two Dimensional Array (Matrix) Operations\n"
-			<< "999. Exit program\n";
+		std::cout << "\n-------------------------------------------------------------------------\n|\t\t\t\t\t\t\t\t\t|\n|";
+			std::cout << "\tWelcome to C++ Algorithms & Datastructures demonstration!\t|\n|\t\t\t\t\t\t\t\t\t|\n";
+			std::cout << "-------------------------------------------------------------------------\n|"
+			<< "\tChoose a number to view different operations:\t\t\t|\n";
+			std::cout << "-------------------------------------------------------------------------\n"
+			<< "|\t1. One Dimensional Array Operations\t\t\t\t|\n" 
+			<< "|\t2. Two Dimensional Array (Matrix) Operations\t\t\t|\n"
+			<< "|\t3. Multidimensional Array (3-Dimensional) Operations\t\t\t|\n"
+			<< "|\t999. Exit program\t\t\t\t\t\t|\n";
+			std::cout << "-------------------------------------------------------------------------\n";
 
 		choice = getIntInputFromUser();
 		switch (choice)
@@ -32,6 +41,9 @@ int main() {
 			break;
 		case 2:
 			twoDimensionalArrayOperationsMenu();
+			break;
+		case 3:
+			multidimensionalArrayOperationsMenu();
 			break;
 		case 999:
 			programOn = false;

@@ -60,7 +60,7 @@ void matrix::display()
 		else 
 		{	
 			//Other new rows of the Matrix
-			std::cout << "[";
+			std::cout << " [";
 		}
 		for (int j = 0; j < twoDimensionalArraySize; j++)
 		{
@@ -92,22 +92,33 @@ void matrix::display()
 //Add two matrices (Matrix 1 & Matrix 2) together
 void matrix::matrixAdd(matrix &matrix1, matrix &matrix2)
 {
+	std::cout << "[+] Starting to add 2 matrices (Matrix 1 [5, 5] & Matrix 2 [5, 5]) together:\n";
 	for (int i = 0; i < twoDimensionalArraySize; i++)
 	{
 		for (int j = 0; j < twoDimensionalArraySize; j++)
+		{
 			mat[i][j] = matrix1.mat[i][j] + matrix2.mat[i][j];
+			std::cout << "[+] Inserting Matrix 1 [" << i << ", " << j << "] (" << matrix1.mat[i][j] << ") + Matrix 2 [" 
+				<< i << ", " << j << "] (" << matrix2.mat[i][j] << ")" << " to Result Matrix [" << i << ", " << j << "] (" << mat[i][j] << ")\n";
+
+		}
 	}
 }
 
 //Multiplies two matrices (Matrix 1 & Matrix 2) together
 void matrix::matrixMultiply(matrix &matrix1, matrix &matrix2)
 {
+	std::cout << "[+] Starting to multiply 2 matrices (Matrix 1 [5, 5] & Matrix 2 [5, 5]) together:\n";
 	for (int k = 0; k < twoDimensionalArraySize; k++)
 	{
 		for (int i = 0; i < twoDimensionalArraySize; i++)
 		{
 			for (int j = 0; j < twoDimensionalArraySize; j++)
+			{
 				mat[k][i] += matrix1.mat[k][j] * matrix2.mat[j][i];
+				std::cout << "[+] Multiplying Matrix 1 [" << i << ", " << j << "] (" << matrix1.mat[i][j] << ") * Matrix 2 ["
+					<< i << ", " << j << "] (" << matrix2.mat[i][j] << ")" << " to Result Matrix [" << i << ", " << j << "] (" << mat[i][j] << ")\n";
+			}
 		}
 	}
 }
@@ -115,10 +126,14 @@ void matrix::matrixMultiply(matrix &matrix1, matrix &matrix2)
 // Obtains transpose of the Matrix
 void matrix::transpose(matrix &matrix1)
 {
+	std::cout << "[+] Starting to transpose Matrix 1 [5, 5]:\n";
 	for (int i = 0; i < twoDimensionalArraySize; i++)
 	{
 		for (int j = 0; j < twoDimensionalArraySize; j++)
+		{
 			mat[i][j] = matrix1.mat[j][i];
+			std::cout << "[+] Transposing Matrix 1 [" << j << ", " << i << "] (" << matrix1.mat[j][i] << ") to Transposed Matrix 1 [" << i << ", " << j << "]\n";
+		}
 	}
 }
 
@@ -170,6 +185,8 @@ void twoDimensionalArrayOperationsMenu()
 			std::cout << "Matrices 1 & 2 added together:\n";
 
 			addedMatrix.matrixAdd(matrix1, matrix2);
+
+			std::cout << "\nResult Matrix:\n";
 			addedMatrix.display();
 			std::cout << "\n";
 			break;
@@ -186,6 +203,7 @@ void twoDimensionalArrayOperationsMenu()
 			std::cout << "Matrices 1 & 2 multiplied together:\n";
 
 			multipliedMatrix.matrixMultiply(matrix1, matrix2);
+			std::cout << "\nResult Matrix:\n";
 			multipliedMatrix.display();
 			std::cout << "\n";
 			break;
@@ -196,7 +214,7 @@ void twoDimensionalArrayOperationsMenu()
 
 			std::cout << "[+] Transposing Matrix 1\n\n";
 			transposedMatrix.transpose(matrix1);
-			std::cout << "Transposed Matrix 1:\n";
+			std::cout << "\nTransposed Matrix 1:\n";
 			transposedMatrix.display();
 			std::cout << "\n";
 			break;

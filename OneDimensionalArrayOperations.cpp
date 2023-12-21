@@ -1,5 +1,5 @@
 /* 
- *  Implementation of various Array operations
+ *  Implementation of various One Dimensional Array operations
  * 
  *  These include adding, searcing & deleting an element in the array. 
  *  Also, reversing & displaying the entire Array.
@@ -24,9 +24,12 @@
 void array::insert(int position, int number) 
 {
 	int i;
+	std::cout << "[+] Starting to insert " << number << " to position arr[" << (position - 1) << "]:\n";
 	//Shift elements to right
 	for (i = arraySize - 1; i >= position; i--)
+		std::cout << "[+] Shifting " << "arr[" << (i - 1) << "] (" << arr[i - 1] << ") to arr[" << (i) << "]\n";
 		arr[i] = arr[i - 1];
+		std::cout << "[+] Insering " << number << " to arr[" << i << "]:\n";
 	arr[i] = number;
 }
 
@@ -34,18 +37,24 @@ void array::insert(int position, int number)
 void array::del(int position)
 {
 	int i;
+	std::cout << "[-] Starting to delete an element from position arr[" << (position - 1) << "]:\n";
+
 	//Skip to the position
 	for (i = position; i < arraySize; i++)
+		std::cout << "[-] Shifting " << "arr[" << (i ) << "] (" << arr[i - 1] << ") to arr[" << (i - 1) << "]\n";
 		arr[i - 1] = arr[i];
 	arr[i - 1] = 0;
+	std::cout << "[-] Deleting " << "arr[" << (i - 1) << "] (Setting arr[" << (i - 1) << "] to 0)\n";
 }
 
 //Search for an element from the array
 void array::search(int number)
 {
+	std::cout << "[+] Starting to search an element " << number << " from the array:\n";
 	int i;
 	for (i = 0; i < arraySize; i++)
 	{
+		std::cout << "[+] Checking value of element position arr[" << (i + 1) << "] (" << arr[i] << ") from the array\n";
 		if (arr[i] == number)
 		{
 			std::cout << "\n" << "Element " << number
@@ -62,11 +71,15 @@ void array::search(int number)
 //Reverse the array
 void array::reverse()
 {
+	std::cout << "[+] Starting to reverse the array:\n";
 	for (int i = 0; i < arraySize / 2; i++)
 	{
 		int temp = arr[i];
+		std::cout << "[+] Assigning arr["<< i << "] (" << arr[i] << ") to temp variable\n";
 		arr[i] = arr[arraySize - 1 - i];
+		std::cout << "[+] Assigning arr[arraySize - 1 - " << i << "] (" << arr[arraySize - 1 - i] << ") to arr["<< i <<"]\n";
 		arr[arraySize - 1 - i] = temp;
+		std::cout << "[+] Assigning temp variable (" << temp << ") to arr[arraySize - 1 -" << i << "] (" << arr[arraySize - 1 - i] << ")\n";
 	}
 }
 
@@ -164,14 +177,15 @@ void arrayOperationsMenu()
 				sampleArray.search(inputValue);
 				break;
 			case 4:
-				std::cout << "Original array:\n";
+				std::cout << "Original array:";
 				sampleArray.display();
-				std::cout << "Reversed array:\n";
+				std::cout << "\n\n";
 				sampleArray.reverse();
+				std::cout << "\nReversed array:";
 				sampleArray.display();
 				break;
 			case 5:
-				std::cout << "Array:\n";
+				std::cout << "Array:\n\n";
 				sampleArray.display();
 				break;
 			case 6:
