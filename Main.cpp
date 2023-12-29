@@ -29,7 +29,7 @@ int main() {
 			std::cout << "-------------------------------------------------------------------------\n"
 			<< "|\t1. One Dimensional Array Operations\t\t\t\t|\n" 
 			<< "|\t2. Two Dimensional Array (Matrix) Operations\t\t\t|\n"
-			<< "|\t3. Multidimensional Array (3-Dimensional) Operations\t\t\t|\n"
+			<< "|\t3. Multidimensional Array (3-Dimensional) Operations\t\t|\n"
 			<< "|\t999. Exit program\t\t\t\t\t\t|\n";
 			std::cout << "-------------------------------------------------------------------------\n";
 
@@ -49,7 +49,7 @@ int main() {
 			programOn = false;
 			break;
 		default:
-			std::cout << "The inputted value must be in the range of 1-2 or 999 to exit";
+			std::cout << "The inputted value must be in the range of 1-3 or 999 to exit";
 			break;
 		}
 	}

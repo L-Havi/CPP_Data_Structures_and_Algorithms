@@ -2,4 +2,4 @@
 
 //Header file for RandomUtils.cpp
 
-int generateRandomInteger();
+int generateRandomInteger(int minGeneratedValue, int maxGeneratedValue);

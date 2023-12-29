@@ -38,7 +38,7 @@ void poly::polyAppend(int coeff, int exp)
 	noOfTerms++;
 }
 
-// adds two polynomials p1 and p2
+// adds two polynomials poly1 and poly2
 void poly::polyAdd(poly &poly1, poly &poly2)
 {
 	int c = poly1.noOfTerms > poly2.noOfTerms ? poly1.noOfTerms : poly2.noOfTerms;
@@ -71,6 +71,34 @@ void poly::polyAdd(poly &poly1, poly &poly2)
 	}
 }
 
+// multiply two polynomials poly1 and poly2
+void poly::polyMultiply(poly& poly1, poly& poly2)
+{
+	int coeff, exp;
+	poly t1, t2;
+	if (poly1.noOfTerms != 0 && poly2.noOfTerms != 0)
+	{
+		for (int i = 0; i < poly1.noOfTerms; i++)
+		{
+			poly p;
+			for (int j = 0; j < poly2.noOfTerms; j++)
+			{
+				coeff = poly1.t[i].coefficient * poly2.t[j].coefficient;
+				exp = poly1.t[i].exponent + poly2.t[j].exponent;
+				p.polyAppend(coeff, exp);
+			}
+			if (i != 0)
+			{
+				t2.polyAdd(t1, p);
+				t1 = t2;
+			}
+			else
+				t1 = p;
+		}
+		*this = t2;
+	}
+}
+
 // Displays the polynomial equation
 void poly::display()
 {
@@ -87,4 +115,120 @@ void poly::display()
 	}
 	if (!flag)
 		std::cout << "\b\b ";
+}
+
+poly createRandomPoly()
+{
+	int exponent = generateRandomInteger(4, 10);
+
+	int randInt;
+
+	int polySize = 5;
+
+	poly genPoly;
+
+	std::cout << "[+] Starting by generating a random 5 elements long polynomial\n";
+	std::cout << "[+] Setting starting exponent to " << exponent << "\n";
+
+	for (int i = 0; i < polySize; i++)
+	{
+		randInt = generateRandomInteger(1, 10);
+		genPoly.polyAppend(randInt, exponent);
+		if (exponent != 0) 
+		{
+			std::cout << "[+] Generated: " << randInt << "x^" << exponent << "\n";
+		}
+		else
+		{
+			std::cout << "[+] Generated: " << randInt << "\n";
+		}
+		exponent--;
+	}
+	std::cout << "[+] Generated a random polynomial: \n";
+	genPoly.display();
+	std::cout << "\n\n";
+	return genPoly;
+}
+
+void multidimensionalArrayOperationsMenu() 
+{
+
+	int choice;
+	bool menuLoop = true;
+
+	poly poly1 = createRandomPoly();
+	poly poly2 = createRandomPoly();
+	poly addedPoly;
+	poly multipliedPoly;
+
+	std::cout << "[+] Generated a random polynomials 1 & 2: \n";
+	std::cout << "[+] Polynomial 1: ";
+	poly1.display();
+	std::cout << "\n[+] Polynomial 2: ";
+	poly2.display();
+
+	while (menuLoop)
+	{
+		std::cout << "\nChoose your action: \n" << "1. Add Polynomials\n"
+			<< "2. Multiply Polynomials\n" << "3. Display Polynomials\n"
+			<< "4. Exit to Main Menu\n";
+
+		choice = getIntInputFromUser();
+		switch (choice)
+		{
+		case 1:
+			std::cout << "\Polynomial 1:\n";
+			poly1.display();
+			std::cout << "\n";
+
+			std::cout << "\Polynomial 2:\n";
+			poly2.display();
+			std::cout << "\n";
+
+			std::cout << "[+] Adding these polynomials together\n\n";
+			std::cout << "Polynomials 1 & 2 added together:\n";
+
+			addedPoly.polyAdd(poly1, poly2);
+
+			std::cout << "\nResult Polynomial:\n";
+			addedPoly.display();
+			std::cout << "\n";
+			break;
+		case 2:
+			std::cout << "\Polynomial 1:\n";
+			poly1.display();
+			std::cout << "\n";
+
+			std::cout << "\Polynomial 2:\n";
+			poly2.display();
+			std::cout << "\n";
+
+			std::cout << "[+] Multiplying these polynomials together\n\n";
+			std::cout << "Polynomials 1 & 2 multiplied together:\n";
+
+			multipliedPoly.polyMultiply(poly1, poly2);
+			std::cout << "\nResult Polynomial:\n";
+			multipliedPoly.display();
+			std::cout << "\n";
+			break;
+		case 3:
+			std::cout << "\Polynomial 1:\n";
+			poly1.display();
+			std::cout << "\n";
+
+			std::cout << "\Polynomial 2:\n";
+			poly2.display();
+			std::cout << "\n";
+			break;
+		case 4:
+			menuLoop = false;
+			break;
+		default:
+			std::cout << "The input value must be an integer between 1-4.";
+			break;
+		}
+
+	}
+	return;
+
 }

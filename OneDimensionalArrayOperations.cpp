@@ -108,7 +108,7 @@ array createRandomArray()
 
 	for (int i = 0; i < arraySize; i++)
 	{
-		randInt = generateRandomInteger();
+		randInt = generateRandomInteger(0, 100);
 		std::cout << "[+] " << (i + 1) << ". random value assigned to " << randInt << "\n";
 		arr.insert(i + 1, randInt);
 	}

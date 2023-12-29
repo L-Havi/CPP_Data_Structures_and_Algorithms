@@ -18,7 +18,10 @@ public:
 	poly();
 	void polyAppend(int coeffifient, int exponent);
 	void polyAdd(poly &poly1, poly &poly2);
+	void polyMultiply(poly& poly1, poly& poly2);
 	void display();
 };
+
+poly createRandomPoly();
 
 void multidimensionalArrayOperationsMenu();

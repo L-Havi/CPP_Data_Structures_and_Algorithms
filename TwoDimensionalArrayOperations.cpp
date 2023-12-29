@@ -39,7 +39,7 @@ void matrix::create()
 	{
 		for (int j = 0; j < twoDimensionalArraySize; j++)
 		{
-			randInt = generateRandomInteger();
+			randInt = generateRandomInteger(0, 100);
 			std::cout << "[+] (" << (i + 1) << ", " << (j + 1) << ") position's value assigned to " << randInt << "\n";
 			mat[i][j] = randInt;
 		}
