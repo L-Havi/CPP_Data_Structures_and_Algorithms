@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LinkedListOperations.cpp" />
     <ClCompile Include="MultidimensionalArrayOperations.cpp" />
     <ClCompile Include="OneDimensionalArrayOperations.cpp" />
     <ClCompile Include="CommonUtils.cpp" />
@@ -135,11 +136,13 @@
     <ClCompile Include="TwoDimensionalArrayOperations.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MultidimensionalArrayOperations.h" />
-    <ClInclude Include="OneDimensionalArrayOperations.h" />
-    <ClInclude Include="CommonUtils.h" />
-    <ClInclude Include="RandomUtils.h" />
-    <ClInclude Include="TwoDimensionalArrayOperations.h" />
+    <ClInclude Include="color.hpp" />
+    <ClInclude Include="LinkedListOperations.hpp" />
+    <ClInclude Include="MultidimensionalArrayOperations.hpp" />
+    <ClInclude Include="OneDimensionalArrayOperations.hpp" />
+    <ClInclude Include="CommonUtils.hpp" />
+    <ClInclude Include="RandomUtils.hpp" />
+    <ClInclude Include="TwoDimensionalArrayOperations.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

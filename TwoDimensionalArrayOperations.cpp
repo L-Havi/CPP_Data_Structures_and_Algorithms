@@ -14,9 +14,10 @@
 
 #include <iostream>
 
-#include "RandomUtils.h"
-#include "CommonUtils.h"
-#include "TwoDimensionalArrayOperations.h"
+#include "RandomUtils.hpp"
+#include "CommonUtils.hpp"
+#include "TwoDimensionalArrayOperations.hpp"
+#include "color.hpp"
 
 // initializes the matrix with zeroes
 matrix::matrix()
@@ -33,18 +34,18 @@ void matrix::create()
 {
 	int randInt;
 
-	std::cout << "[+] Generating a random (" << twoDimensionalArraySize << ", " << twoDimensionalArraySize << ") Matrix\n";
+	std::cout << dye::green("[+]") << " Generating a random (" << twoDimensionalArraySize << ", " << twoDimensionalArraySize << ") Matrix\n";
 
 	for (int i = 0; i < twoDimensionalArraySize; i++)
 	{
 		for (int j = 0; j < twoDimensionalArraySize; j++)
 		{
 			randInt = generateRandomInteger(0, 100);
-			std::cout << "[+] (" << (i + 1) << ", " << (j + 1) << ") position's value assigned to " << randInt << "\n";
+			std::cout << dye::green("[+]") << " (" << (i + 1) << ", " << (j + 1) << ") position's value assigned to " << randInt << "\n";
 			mat[i][j] = randInt;
 		}
 	}
-	std::cout << "[+] Generated a random Matrix \n";
+	std::cout << dye::green("[+]") << " Generated a random Matrix \n";
 }
 
 //Displays the contents of the Matrix
@@ -92,13 +93,13 @@ void matrix::display()
 //Add two matrices (Matrix 1 & Matrix 2) together
 void matrix::matrixAdd(matrix &matrix1, matrix &matrix2)
 {
-	std::cout << "[+] Starting to add 2 matrices (Matrix 1 [5, 5] & Matrix 2 [5, 5]) together:\n";
+	std::cout << dye::green("[+]") << " Starting to add 2 matrices (Matrix 1 [5, 5] & Matrix 2 [5, 5]) together:\n";
 	for (int i = 0; i < twoDimensionalArraySize; i++)
 	{
 		for (int j = 0; j < twoDimensionalArraySize; j++)
 		{
 			mat[i][j] = matrix1.mat[i][j] + matrix2.mat[i][j];
-			std::cout << "[+] Inserting Matrix 1 [" << i << ", " << j << "] (" << matrix1.mat[i][j] << ") + Matrix 2 [" 
+			std::cout << dye::green("[+]") << " Inserting Matrix 1 [" << i << ", " << j << "] (" << matrix1.mat[i][j] << ") + Matrix 2 ["
 				<< i << ", " << j << "] (" << matrix2.mat[i][j] << ")" << " to Result Matrix [" << i << ", " << j << "] (" << mat[i][j] << ")\n";
 
 		}
@@ -108,7 +109,7 @@ void matrix::matrixAdd(matrix &matrix1, matrix &matrix2)
 //Multiplies two matrices (Matrix 1 & Matrix 2) together
 void matrix::matrixMultiply(matrix &matrix1, matrix &matrix2)
 {
-	std::cout << "[+] Starting to multiply 2 matrices (Matrix 1 [5, 5] & Matrix 2 [5, 5]) together:\n";
+	std::cout << dye::green("[+]") << " Starting to multiply 2 matrices (Matrix 1 [5, 5] & Matrix 2 [5, 5]) together:\n";
 	for (int k = 0; k < twoDimensionalArraySize; k++)
 	{
 		for (int i = 0; i < twoDimensionalArraySize; i++)
@@ -116,7 +117,7 @@ void matrix::matrixMultiply(matrix &matrix1, matrix &matrix2)
 			for (int j = 0; j < twoDimensionalArraySize; j++)
 			{
 				mat[k][i] += matrix1.mat[k][j] * matrix2.mat[j][i];
-				std::cout << "[+] Multiplying Matrix 1 [" << i << ", " << j << "] (" << matrix1.mat[i][j] << ") * Matrix 2 ["
+				std::cout << dye::green("[+]") << " Multiplying Matrix 1 [" << i << ", " << j << "] (" << matrix1.mat[i][j] << ") * Matrix 2 ["
 					<< i << ", " << j << "] (" << matrix2.mat[i][j] << ")" << " to Result Matrix [" << i << ", " << j << "] (" << mat[i][j] << ")\n";
 			}
 		}
@@ -126,13 +127,13 @@ void matrix::matrixMultiply(matrix &matrix1, matrix &matrix2)
 // Obtains transpose of the Matrix
 void matrix::transpose(matrix &matrix1)
 {
-	std::cout << "[+] Starting to transpose Matrix 1 [5, 5]:\n";
+	std::cout << dye::green("[+]") << " Starting to transpose Matrix 1 [5, 5]:\n";
 	for (int i = 0; i < twoDimensionalArraySize; i++)
 	{
 		for (int j = 0; j < twoDimensionalArraySize; j++)
 		{
 			mat[i][j] = matrix1.mat[j][i];
-			std::cout << "[+] Transposing Matrix 1 [" << j << ", " << i << "] (" << matrix1.mat[j][i] << ") to Transposed Matrix 1 [" << i << ", " << j << "]\n";
+			std::cout << dye::green("[+]") << " Transposing Matrix 1 [" << j << ", " << i << "] (" << matrix1.mat[j][i] << ") to Transposed Matrix 1 [" << i << ", " << j << "]\n";
 		}
 	}
 }
@@ -144,7 +145,7 @@ void twoDimensionalArrayOperationsMenu()
 	bool menuLoop = true;
 
 	matrix matrix1;
-	std::cout << "Creating a first random Matrix (Matrix 1)\n";
+	std::cout << dye::green("[+]") << " Creating a first random Matrix (Matrix 1)\n";
 	matrix1.create();
 
 	std::cout << "\nMatrix 1:\n";
@@ -152,7 +153,7 @@ void twoDimensionalArrayOperationsMenu()
 	std::cout << "\n";
 
 	matrix matrix2;
-	std::cout << "Creating a second random Matrix (Matrix 2)\n";
+	std::cout << dye::green("[+]") << " Creating a second random Matrix (Matrix 2)\n";
 	matrix2.create();
 
 	std::cout << "\nMatrix 2:\n";
@@ -181,7 +182,7 @@ void twoDimensionalArrayOperationsMenu()
 			matrix2.display();
 			std::cout << "\n";
 
-			std::cout << "[+] Adding these matrices together\n\n";
+			std::cout << dye::green("[+]") << " Adding these matrices together\n\n";
 			std::cout << "Matrices 1 & 2 added together:\n";
 
 			addedMatrix.matrixAdd(matrix1, matrix2);
@@ -199,7 +200,7 @@ void twoDimensionalArrayOperationsMenu()
 			matrix2.display();
 			std::cout << "\n";
 
-			std::cout << "[+] Multiplying these matrices together\n\n";
+			std::cout << dye::green("[+]") << " Multiplying these matrices together\n\n";
 			std::cout << "Matrices 1 & 2 multiplied together:\n";
 
 			multipliedMatrix.matrixMultiply(matrix1, matrix2);
@@ -212,7 +213,7 @@ void twoDimensionalArrayOperationsMenu()
 			matrix1.display();
 			std::cout << "\n";
 
-			std::cout << "[+] Transposing Matrix 1\n\n";
+			std::cout << dye::green("[+]") << " Transposing Matrix 1\n\n";
 			transposedMatrix.transpose(matrix1);
 			std::cout << "\nTransposed Matrix 1:\n";
 			transposedMatrix.display();
@@ -222,7 +223,7 @@ void twoDimensionalArrayOperationsMenu()
 			menuLoop = false;
 			break;
 		default:
-			std::cout << "The input value must be an integer between 1-4.";
+			std::cout << dye::red("[-]") << "The input value must be an integer between 1-4.";
 			break;
 		}
 

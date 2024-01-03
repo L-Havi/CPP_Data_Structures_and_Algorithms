@@ -4,7 +4,7 @@
  */
 
 #include <iostream>
-#include "RandomUtils.h"
+#include "RandomUtils.hpp"
 #include <random>
 
 using u32 = uint_least32_t;

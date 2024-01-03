@@ -7,7 +7,7 @@
 #include <string>
 #include <stdexcept>
 
-#include "CommonUtils.h"
+#include "CommonUtils.hpp"
 
 bool tryParse(std::string& input, int& output) {
 	try {

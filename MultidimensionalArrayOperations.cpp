@@ -11,9 +11,10 @@
  *	The formula for Column Major arrangement would be Base address + i * y * z + k * y + j.
  */
 
-#include "multidimensionalArrayOperations.h"
-#include "RandomUtils.h"
-#include "CommonUtils.h"
+#include "multidimensionalArrayOperations.hpp"
+#include "RandomUtils.hpp"
+#include "CommonUtils.hpp"
+#include "color.hpp"
 
 #include <iostream>
 #include <string>
@@ -127,8 +128,8 @@ poly createRandomPoly()
 
 	poly genPoly;
 
-	std::cout << "[+] Starting by generating a random 5 elements long polynomial\n";
-	std::cout << "[+] Setting starting exponent to " << exponent << "\n";
+	std::cout << dye::green("[+]") << " Starting by generating a random 5 elements long polynomial\n";
+	std::cout << dye::green("[+]") << " Setting starting exponent to " << exponent << "\n";
 
 	for (int i = 0; i < polySize; i++)
 	{
@@ -136,15 +137,15 @@ poly createRandomPoly()
 		genPoly.polyAppend(randInt, exponent);
 		if (exponent != 0) 
 		{
-			std::cout << "[+] Generated: " << randInt << "x^" << exponent << "\n";
+			std::cout << dye::green("[+]") << " Generated: " << randInt << "x^" << exponent << "\n";
 		}
 		else
 		{
-			std::cout << "[+] Generated: " << randInt << "\n";
+			std::cout << dye::green("[+]") << " Generated: " << randInt << "\n";
 		}
 		exponent--;
 	}
-	std::cout << "[+] Generated a random polynomial: \n";
+	std::cout << dye::green("[+]") << " Generated a random polynomial: \n";
 	genPoly.display();
 	std::cout << "\n\n";
 	return genPoly;
@@ -161,10 +162,10 @@ void multidimensionalArrayOperationsMenu()
 	poly addedPoly;
 	poly multipliedPoly;
 
-	std::cout << "[+] Generated a random polynomials 1 & 2: \n";
-	std::cout << "[+] Polynomial 1: ";
+	std::cout << dye::green("[+]")  << " Generated a random polynomials 1 & 2: \n";
+	std::cout << dye::green("[+]") << " Polynomial 1: ";
 	poly1.display();
-	std::cout << "\n[+] Polynomial 2: ";
+	std::cout << dye::green("\n[+]") << " Polynomial 2: ";
 	poly2.display();
 
 	while (menuLoop)
@@ -185,7 +186,7 @@ void multidimensionalArrayOperationsMenu()
 			poly2.display();
 			std::cout << "\n";
 
-			std::cout << "[+] Adding these polynomials together\n\n";
+			std::cout << dye::green("[+]") << " Adding these polynomials together\n\n";
 			std::cout << "Polynomials 1 & 2 added together:\n";
 
 			addedPoly.polyAdd(poly1, poly2);
@@ -203,7 +204,7 @@ void multidimensionalArrayOperationsMenu()
 			poly2.display();
 			std::cout << "\n";
 
-			std::cout << "[+] Multiplying these polynomials together\n\n";
+			std::cout << dye::green("[+]") << " Multiplying these polynomials together\n\n";
 			std::cout << "Polynomials 1 & 2 multiplied together:\n";
 
 			multipliedPoly.polyMultiply(poly1, poly2);
@@ -224,7 +225,7 @@ void multidimensionalArrayOperationsMenu()
 			menuLoop = false;
 			break;
 		default:
-			std::cout << "The input value must be an integer between 1-4.";
+			std::cout << dye::red("[-]") << " The input value must be an integer between 1-4.";
 			break;
 		}
 

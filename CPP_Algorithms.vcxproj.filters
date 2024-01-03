@@ -13,42 +13,69 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\ArrayFiles">
+      <UniqueIdentifier>{8016d232-4001-4f31-b352-cf912831d12c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{60c6b3c9-b187-4a2b-b218-1ef26cf41251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ArrayHeaders">
+      <UniqueIdentifier>{0fc2f7ec-6d3a-42c2-a51e-b870a5327422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UtilitiesHeaders">
+      <UniqueIdentifier>{e7a0a4d7-82a8-4346-9394-3fce3f837770}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LinkedListFiles">
+      <UniqueIdentifier>{fa68aa37-d1b5-435a-a4a0-e343209e4652}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinkedListHeaders">
+      <UniqueIdentifier>{ce864a2a-7bc3-4aff-b937-b5fa4e259e4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MultidimensionalArrayOperations.cpp">
+      <Filter>Source Files\ArrayFiles</Filter>
+    </ClCompile>
     <ClCompile Include="OneDimensionalArrayOperations.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RandomUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CommonUtils.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ArrayFiles</Filter>
     </ClCompile>
     <ClCompile Include="TwoDimensionalArrayOperations.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ArrayFiles</Filter>
     </ClCompile>
-    <ClCompile Include="MultidimensionalArrayOperations.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="CommonUtils.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomUtils.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedListOperations.cpp">
+      <Filter>Source Files\LinkedListFiles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OneDimensionalArrayOperations.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="MultidimensionalArrayOperations.hpp">
+      <Filter>Header Files\ArrayHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="RandomUtils.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="OneDimensionalArrayOperations.hpp">
+      <Filter>Header Files\ArrayHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="CommonUtils.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="TwoDimensionalArrayOperations.hpp">
+      <Filter>Header Files\ArrayHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="TwoDimensionalArrayOperations.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="CommonUtils.hpp">
+      <Filter>Header Files\UtilitiesHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="MultidimensionalArrayOperations.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="RandomUtils.hpp">
+      <Filter>Header Files\UtilitiesHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedListOperations.hpp">
+      <Filter>Header Files\LinkedListHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="color.hpp">
+      <Filter>Header Files\UtilitiesHeaders</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
