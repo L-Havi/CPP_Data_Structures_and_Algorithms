@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoublyLinkedListOperations.cpp" />
     <ClCompile Include="LinkedListOperations.cpp" />
     <ClCompile Include="MultidimensionalArrayOperations.cpp" />
     <ClCompile Include="OneDimensionalArrayOperations.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="color.hpp" />
+    <ClInclude Include="DoublyLinkedListOperations.hpp" />
     <ClInclude Include="LinkedListOperations.hpp" />
     <ClInclude Include="MultidimensionalArrayOperations.hpp" />
     <ClInclude Include="OneDimensionalArrayOperations.hpp" />

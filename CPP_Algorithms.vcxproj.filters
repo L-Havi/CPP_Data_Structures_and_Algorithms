@@ -54,6 +54,9 @@
     <ClCompile Include="LinkedListOperations.cpp">
       <Filter>Source Files\LinkedListFiles</Filter>
     </ClCompile>
+    <ClCompile Include="DoublyLinkedListOperations.cpp">
+      <Filter>Source Files\LinkedListFiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MultidimensionalArrayOperations.hpp">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="color.hpp">
       <Filter>Header Files\UtilitiesHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="DoublyLinkedListOperations.hpp">
+      <Filter>Header Files\LinkedListHeaders</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

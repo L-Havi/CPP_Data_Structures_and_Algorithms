@@ -2,7 +2,9 @@
  *  Implementation of various Linked List Operations
  *
  *  These include appending to a linked list, adding an element to the beginning of a linked list & adding an element to a set place in the linked list.
- *  Also, operations for getting the element count of the linked list, deleting an element from the linked list & displaying the entire linked list are implemented.
+ *  Also, operations for getting the element count of the linked list, reversing the linked list, deleting an element from the linked list & displaying 
+ *	the entire linked list are implemented.
+ * 
  *  The Linked List in this case is an integer Linked List
  *
  * 	While the elements of an array occupy contiguous memory locations,
@@ -93,7 +95,7 @@ void linkList::addAfter(int location, int number)
 		//If the end of the Linked List is encountered
 		if (temp == NULL)
 		{
-			std::cout << "\n[-] There are less than " << location << " elements in list\n";
+			std::cout << dye::red("[-]")<< "\n There are less than " << location << " elements in list\n";
 			return;
 		}
 
@@ -198,6 +200,32 @@ void linkList::deleteElement(int number)
 	std::cout << dye::red("[-]") << " Element " << number << " was not found from the Linked List!\n";
 }
 
+//Concatenates two Linked Lists
+void linkList::concatenate(linkList& l)
+{
+	node* temp;
+	//If the first linked list is empty
+	if (p == NULL)
+	{
+		p = l.p;
+	}
+	else
+	{
+		//If both linked lists are non-empty
+		if (l.p != NULL)
+		{
+			//Points to the starting of the first list
+			temp = p;
+			//Traverse the entire first linked list
+				while (temp->link != NULL)
+					temp = temp->link;
+			// concatenate the second list after the first
+			temp->link = l.p;
+		}
+	}
+	l.p = NULL;
+}
+
 //Deallocates memory
 linkList::~linkList()
 {
@@ -210,7 +238,7 @@ linkList::~linkList()
 	}
 }
 
-void linkedListOperationsMenu() 
+void linkedListOperationsMenu()
 {
 
 	int choice;
@@ -265,7 +293,7 @@ void linkedListOperationsMenu()
 			lList.display();
 			std::cout << "\n";
 
-			std::cout << dye::yellow("[1]") << " Choose a location where to append the element to the Linked List:";
+			std::cout << dye::yellow("[!]") << " Choose a location where to append the element to the Linked List:";
 			locationValue = getIntInputFromUser();
 			std::cout << dye::yellow("[!]") << " Choose a number value to append to the Linked List:";
 			inputValue = getIntInputFromUser();
@@ -314,7 +342,7 @@ void linkedListOperationsMenu()
 			menuLoop = false;
 			break;
 		default:
-			std::cout << dye::red("[-]") << " The input value must be an integer between 1-7.";
+			std::cout << dye::red("[-]") << " The input value must be an integer between 1-8.";
 			break;
 		}
 

@@ -1,27 +1,26 @@
 #pragma once
 
-//Header file for LinkedListOperations.cpp
+//Header file for DoublyLinkedListOperations.cpp
 
-class linkList
+class doublyLinkedList
 {
 private:
 	struct node
 	{
+		node *prev;
 		int data;
-		node *link;
+		node *next;
 	} *p;
 
 public:
-	linkList();
+	doublyLinkedList();
 	void append(int number);
 	void addAtBeginning(int number);
 	void addAfter(int location, int number);
-	void reverse();
 	void display();
 	int count();
 	void deleteElement(int number);
-	void concatenate(linkList &l);
-	virtual ~linkList();
+	virtual ~doublyLinkedList();
 };
 
-void linkedListOperationsMenu();
+void doublyLinkedListOperationsMenu();
